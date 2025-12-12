@@ -33,6 +33,7 @@ const PUNCH_AUDIO_URL = 'https://www.dropbox.com/scl/fi/m4w7w4kz92a6cqnl47s16/pu
 const SLAP_AUDIO_URL  = 'https://www.dropbox.com/scl/fi/2xgw7yd5arl48ix062fh5/cartoon-slap-2-189831.mp3?rlkey=fu79ieuwnd11ead0dmdi183av&st=8tgnyrmn&dl=0';
 const KICK_AUDIO_URL  = '';
 const TOMATO_AUDIO_URL= 'https://www.dropbox.com/scl/fi/aqqv09g55dg2gg6qgi0dz/tomato-squishwet-103934.mp3?rlkey=7qsv6w65gpwdqfll84ddu579p&st=dka486q6&dl=0';
+const AUTOPLAY_AUDIO_URL = 'https://www.dropbox.com/scl/fi/5ut9nvmy2j3aznjbmlv6m/oguz-sasi-yayinda-buyu-yapiyor-made-with-Voicemod.mp3?rlkey=5vphn50mvnsywuyeed9hay5ke&st=zh42dqnr&dl=0';
 const OVERRIDE = {
   punch: getParamSafe('apunch') || PUNCH_AUDIO_URL,
   slap:  getParamSafe('aslap')  || SLAP_AUDIO_URL,
@@ -274,3 +275,22 @@ function setRandomActionImage(action){
   const src = pool[Math.floor(Math.random()*pool.length)];
   try{ img.src = normalizeAudioUrl(src); }catch(e){}
 }
+
+(() => {
+  const url = getParamSafe('auto') || AUTOPLAY_AUDIO_URL;
+  if(!url) return;
+  const playNow = () => {
+    try{
+      customAudio.pause();
+      customAudio.src = normalizeAudioUrl(url);
+      customAudio.currentTime = 0;
+      customAudio.play();
+    }catch(e){}
+  };
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', playNow);
+  }else{
+    playNow();
+  }
+})();
+
