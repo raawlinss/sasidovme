@@ -25,7 +25,7 @@ function getImageUrl(){
   const urlParam = getParamSafe('img') || CHARACTER_IMAGE_URL;
   return urlParam || '';
 }
-img.src = getImageUrl() || 'https://i.imgur.com/8Km9tLL.png';
+img.src = getImageUrl() || 'https://i.pinimg.com/originals/a7/dd/e4/a7dde433e390cf3e0fc83703b3376b3b.gif';
 
 // Optional per-action external audio links (leave empty to disable)
 // You can also pass them via URL/hash/localStorage. For raw URLs with '&', prefer base64 params: apunch64=BASE64(url)
