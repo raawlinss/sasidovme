@@ -34,7 +34,7 @@ const SLAP_AUDIO_URL  = 'https://www.dropbox.com/scl/fi/2xgw7yd5arl48ix062fh5/ca
 const KICK_AUDIO_URL  = '';
 const TOMATO_AUDIO_URL= 'https://www.dropbox.com/scl/fi/aqqv09g55dg2gg6qgi0dz/tomato-squishwet-103934.mp3?rlkey=7qsv6w65gpwdqfll84ddu579p&st=dka486q6&dl=0';
 const AUTOPLAY_AUDIO_URL = 'https://www.dropbox.com/scl/fi/5ut9nvmy2j3aznjbmlv6m/oguz-sasi-yayinda-buyu-yapiyor-made-with-Voicemod.mp3?rlkey=5vphn50mvnsywuyeed9hay5ke&st=zh42dqnr&dl=0';
-const AUTOPLAY_AUDIO_URL_2 = '';
+const AUTOPLAY_AUDIO_URL_2 = 'https://www.dropbox.com/scl/fi/bh0zzhz3758rb4hcrw01j/O-uz-Sasi-Mexicana-Paparayara-Official-Music.mp3?rlkey=zbh6n0410sswe9ppikhayyu1e&st=1g6vsdz7&dl=0';
 const OVERRIDE = {
   punch: getParamSafe('apunch') || PUNCH_AUDIO_URL,
   slap:  getParamSafe('aslap')  || SLAP_AUDIO_URL,
