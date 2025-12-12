@@ -251,7 +251,7 @@ function playSfxNow(url, builtinEl){
 }
 
 // Per-action image pools (random)
-const IMAGE_PUNCH_URLS  = '';
+const IMAGE_PUNCH_URLS  = 'https://i.hizliresim.com/9zh2ozm.gif';
 const IMAGE_SLAP_URLS   = '';
 const IMAGE_KICK_URLS   = '';
 const IMAGE_TOMATO_URLS = '';
