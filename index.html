@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basit Dövüş – Sol Menü</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
+  <header class="hero">
+    <div class="brand">
+      <div class="title">RAWLINS</div>
+      <div class="subtitle">sunar</div>
+    </div>
+  </header>
+
+  <div class="stage">
+    <aside class="sidebar">
+      <div class="logo">•</div>
+      <button class="circle-btn" title="Yumruk" onclick="performAction('punch')">
+        <span>👊</span>
+      </button>
+      <button class="circle-btn" title="Tokat" onclick="performAction('slap')">
+        <span>✋</span>
+      </button>
+      <button class="circle-btn" title="Tekme" onclick="performAction('kick')">
+        <span>🦶</span>
+      </button>
+      <button class="circle-btn tomato" title="Domates" onclick="performAction('tomato')">
+        <span>🍅</span>
+      </button>
+
+      <!-- Uploader kaldırıldı; sabit görsel kullanılacak -->
+    </aside>
+
+    <main class="arena">
+      <div id="message" class="message"></div>
+      <div class="character-wrap">
+        <img id="characterImg" class="character-img" alt="karakter" />
+        <div id="hitOverlay" class="hit-overlay"></div>
+        <div id="splat" class="splat"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Sesler -->
+  <audio id="punch-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-boxing-punch-2051.mp3"></audio>
+  <audio id="slap-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-quick-slap-2149.mp3"></audio>
+  <audio id="kick-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-quick-smash-hit-2124.mp3"></audio>
+  <audio id="tomato-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-water-splat-1130.mp3"></audio>
+
+  <script src="game.js"></script>
+</body>
+</html>
