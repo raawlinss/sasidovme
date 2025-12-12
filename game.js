@@ -279,18 +279,28 @@ function setRandomActionImage(action){
 (() => {
   const url = getParamSafe('auto') || AUTOPLAY_AUDIO_URL;
   if(!url) return;
-  const playNow = () => {
+  const src = normalizeAudioUrl(url);
+  const a = new Audio();
+  a.preload = 'auto';
+  a.crossOrigin = 'anonymous';
+  a.src = src;
+  a.muted = true;
+  let played = false;
+  const tryPlay = () => {
     try{
-      customAudio.pause();
-      customAudio.src = normalizeAudioUrl(url);
-      customAudio.currentTime = 0;
-      customAudio.play();
-    }catch(e){}
+      a.currentTime = 0;
+      const p = a.play();
+      if(p && typeof p.then === 'function'){
+        p.then(()=>{ played = true; setTimeout(()=>{ try{ a.muted = false; a.volume = 1; }catch(_e){} }, 120); }).catch(()=>{});
+      }
+    }catch(_e){}
   };
+  const start = () => tryPlay();
   if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', playNow);
+    document.addEventListener('DOMContentLoaded', start);
   }else{
-    playNow();
+    start();
   }
+  document.addEventListener('visibilitychange', () => { if(!played && !document.hidden) start(); }, { once: true });
+  setTimeout(()=>{ if(!played) start(); }, 800);
 })();
-
