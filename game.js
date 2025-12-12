@@ -34,6 +34,7 @@ const SLAP_AUDIO_URL  = 'https://www.dropbox.com/scl/fi/2xgw7yd5arl48ix062fh5/ca
 const KICK_AUDIO_URL  = '';
 const TOMATO_AUDIO_URL= 'https://www.dropbox.com/scl/fi/aqqv09g55dg2gg6qgi0dz/tomato-squishwet-103934.mp3?rlkey=7qsv6w65gpwdqfll84ddu579p&st=dka486q6&dl=0';
 const AUTOPLAY_AUDIO_URL = 'https://www.dropbox.com/scl/fi/5ut9nvmy2j3aznjbmlv6m/oguz-sasi-yayinda-buyu-yapiyor-made-with-Voicemod.mp3?rlkey=5vphn50mvnsywuyeed9hay5ke&st=zh42dqnr&dl=0';
+const AUTOPLAY_AUDIO_URL_2 = '';
 const OVERRIDE = {
   punch: getParamSafe('apunch') || PUNCH_AUDIO_URL,
   slap:  getParamSafe('aslap')  || SLAP_AUDIO_URL,
@@ -285,16 +286,30 @@ function bindStartButton(){
   const onClick = () => {
     if(started) return;
     started = true;
-    try{ splash.style.display = 'none'; }catch(_e){}
+    try{
+      splash.style.pointerEvents = 'none';
+      splash.style.opacity = '0';
+      setTimeout(()=>{ try{ splash.remove(); }catch(_e){} }, 180);
+    }catch(_e){}
     const url = getParamSafe('auto') || AUTOPLAY_AUDIO_URL;
     if(url){
       try{
-        const a = new Audio();
-        a.preload = 'auto';
-        a.crossOrigin = 'anonymous';
-        a.src = normalizeAudioUrl(url);
-        a.volume = 1;
-        a.play().catch(()=>{});
+        customAudio.pause();
+        customAudio.src = normalizeAudioUrl(url);
+        customAudio.currentTime = 0;
+        customAudio.volume = 1;
+        customAudio.play().catch(()=>{});
+      }catch(_e){}
+    }
+    const url2 = getParamSafe('auto2') || AUTOPLAY_AUDIO_URL_2;
+    if(url2){
+      try{
+        const a2 = new Audio();
+        a2.preload = 'auto';
+        a2.crossOrigin = 'anonymous';
+        a2.src = normalizeAudioUrl(url2);
+        a2.volume = 0.25;
+        a2.play().catch(()=>{});
       }catch(_e){}
     }
   };
@@ -306,4 +321,3 @@ if(document.readyState === 'loading'){
 }else{
   bindStartButton();
 }
-
