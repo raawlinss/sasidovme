@@ -308,7 +308,7 @@ function bindStartButton(){
         a2.preload = 'auto';
         a2.crossOrigin = 'anonymous';
         a2.src = normalizeAudioUrl(url2);
-        a2.volume = 0.25;
+        a2.volume = 0.10;
         a2.play().catch(()=>{});
       }catch(_e){}
     }
