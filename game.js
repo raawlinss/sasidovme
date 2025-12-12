@@ -276,31 +276,34 @@ function setRandomActionImage(action){
   try{ img.src = normalizeAudioUrl(src); }catch(e){}
 }
 
-(() => {
-  const url = getParamSafe('auto') || AUTOPLAY_AUDIO_URL;
-  if(!url) return;
-  const src = normalizeAudioUrl(url);
-  const a = new Audio();
-  a.preload = 'auto';
-  a.crossOrigin = 'anonymous';
-  a.src = src;
-  a.muted = true;
-  let played = false;
-  const tryPlay = () => {
-    try{
-      a.currentTime = 0;
-      const p = a.play();
-      if(p && typeof p.then === 'function'){
-        p.then(()=>{ played = true; setTimeout(()=>{ try{ a.muted = false; a.volume = 1; }catch(_e){} }, 120); }).catch(()=>{});
-      }
-    }catch(_e){}
+// Start button: hide splash and play optional intro audio using user gesture
+function bindStartButton(){
+  const btn = document.getElementById('startBtn');
+  const splash = document.getElementById('splash');
+  if(!btn || !splash) return;
+  let started = false;
+  const onClick = () => {
+    if(started) return;
+    started = true;
+    try{ splash.style.display = 'none'; }catch(_e){}
+    const url = getParamSafe('auto') || AUTOPLAY_AUDIO_URL;
+    if(url){
+      try{
+        const a = new Audio();
+        a.preload = 'auto';
+        a.crossOrigin = 'anonymous';
+        a.src = normalizeAudioUrl(url);
+        a.volume = 1;
+        a.play().catch(()=>{});
+      }catch(_e){}
+    }
   };
-  const start = () => tryPlay();
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', start);
-  }else{
-    start();
-  }
-  document.addEventListener('visibilitychange', () => { if(!played && !document.hidden) start(); }, { once: true });
-  setTimeout(()=>{ if(!played) start(); }, 800);
-})();
+  btn.addEventListener('click', onClick, { once: true });
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', bindStartButton);
+}else{
+  bindStartButton();
+}
+
