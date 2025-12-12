@@ -29,7 +29,7 @@ img.src = getImageUrl() || 'https://i.pinimg.com/originals/a7/dd/e4/a7dde433e390
 
 // Optional per-action external audio links (leave empty to disable)
 // You can also pass them via URL/hash/localStorage. For raw URLs with '&', prefer base64 params: apunch64=BASE64(url)
-const PUNCH_AUDIO_URL = '';
+const PUNCH_AUDIO_URL = 'https://www.dropbox.com/scl/fi/m4w7w4kz92a6cqnl47s16/punch-416719.mp3?rlkey=2p73uhu5fhcevdffhdrroedfz&st=aneov7k8&dl=0';
 const SLAP_AUDIO_URL  = '';
 const KICK_AUDIO_URL  = '';
 const TOMATO_AUDIO_URL= '';
