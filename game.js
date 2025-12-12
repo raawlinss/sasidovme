@@ -30,9 +30,9 @@ img.src = getImageUrl() || 'https://i.pinimg.com/originals/a7/dd/e4/a7dde433e390
 // Optional per-action external audio links (leave empty to disable)
 // You can also pass them via URL/hash/localStorage. For raw URLs with '&', prefer base64 params: apunch64=BASE64(url)
 const PUNCH_AUDIO_URL = 'https://www.dropbox.com/scl/fi/m4w7w4kz92a6cqnl47s16/punch-416719.mp3?rlkey=2p73uhu5fhcevdffhdrroedfz&st=aneov7k8&dl=0';
-const SLAP_AUDIO_URL  = '';
+const SLAP_AUDIO_URL  = 'https://www.dropbox.com/scl/fi/2xgw7yd5arl48ix062fh5/cartoon-slap-2-189831.mp3?rlkey=fu79ieuwnd11ead0dmdi183av&st=8tgnyrmn&dl=0';
 const KICK_AUDIO_URL  = '';
-const TOMATO_AUDIO_URL= '';
+const TOMATO_AUDIO_URL= 'https://www.dropbox.com/scl/fi/aqqv09g55dg2gg6qgi0dz/tomato-squishwet-103934.mp3?rlkey=7qsv6w65gpwdqfll84ddu579p&st=dka486q6&dl=0';
 const OVERRIDE = {
   punch: getParamSafe('apunch') || PUNCH_AUDIO_URL,
   slap:  getParamSafe('aslap')  || SLAP_AUDIO_URL,
@@ -252,9 +252,9 @@ function playSfxNow(url, builtinEl){
 
 // Per-action image pools (random)
 const IMAGE_PUNCH_URLS  = 'https://i.hizliresim.com/9zh2ozm.gif';
-const IMAGE_SLAP_URLS   = '';
-const IMAGE_KICK_URLS   = '';
-const IMAGE_TOMATO_URLS = '';
+const IMAGE_SLAP_URLS   = 'https://i.hizliresim.com/ssg601i.gif';
+const IMAGE_KICK_URLS   = 'https://i.hizliresim.com/1vdsfzh.gif';
+const IMAGE_TOMATO_URLS = 'https://i.hizliresim.com/rbbz2a6.gif';
 
 function getImagePool(action){
   const map = {
