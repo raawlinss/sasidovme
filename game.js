@@ -10,7 +10,7 @@ const slapSound = document.getElementById('slap-sound');
 const kickSound = document.getElementById('kick-sound');
 const tomatoSound = document.getElementById('tomato-sound');
 
-const CHARACTER_IMAGE_URL = 'https://i.pinimg.com/originals/a7/dd/e4/a7dde433e390cf3e0fc83703b3376b3b.gif';
+const CHARACTER_IMAGE_URL = 'https://i.pinimg.com/736x/4c/39/e1/4c39e1ca04b33004395c13b2247e33f3.jpg';
 function getParamSafe(name){
   try{
     const q = new URLSearchParams(location.search);
