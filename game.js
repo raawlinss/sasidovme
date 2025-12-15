@@ -25,7 +25,7 @@ function getImageUrl(){
   const urlParam = getParamSafe('img') || CHARACTER_IMAGE_URL;
   return urlParam || '';
 }
-img.src = getImageUrl() || 'https://i.pinimg.com/originals/a7/dd/e4/a7dde433e390cf3e0fc83703b3376b3b.gif';
+img.src = getImageUrl() || 'https://i.pinimg.com/736x/4c/39/e1/4c39e1ca04b33004395c13b2247e33f3.jpg';
 
 // Optional per-action external audio links (leave empty to disable)
 // You can also pass them via URL/hash/localStorage. For raw URLs with '&', prefer base64 params: apunch64=BASE64(url)
@@ -130,7 +130,7 @@ function playCustom(url){
 
 // Human voices: arrays with random pick
 const HUMAN_PUNCH_URLS  = 'https://www.dropbox.com/scl/fi/vs6yl69csu6jnbpd4nhsw/Tokat.mp3?rlkey=w61wj0kv6rtoij9oqlgmox37u&st=597jzraq&dl=0';
-const HUMAN_SLAP_URLS   = 'https://www.dropbox.com/scl/fi/gpxmjalfdqe0chd6uadjf/Slap.mp3?rlkey=ovn6ocrfv6rkezjd4jarpw9au&st=oo7h31qu&dl=0';
+const HUMAN_SLAP_URLS   = 'https://www.dropbox.com/scl/fi/0064yh63xzljbikjqof5k/sasi-oyun.mp3?rlkey=99i1yp31kn0b7ey4fu8deioxs&st=gztpdp7n&dl=0';
 const HUMAN_KICK_URLS   = 'https://www.dropbox.com/scl/fi/ytvshvcy3211majf8om8j/Tekme.mp3?rlkey=vq8a99z8usvtxdssrgwqp86lt&st=wlh7dpgu&dl=0';
 const HUMAN_TOMATO_URLS = 'https://www.dropbox.com/scl/fi/e20bm7gpydpwky6li0l00/O-uz-Sasi-Blazing-Sails-ld-rma-Ve-Delirme-Anlar-AudioTrimmer.com.mp3?rlkey=2aj4cxj7huu5tzafrm8rjl61y&st=2wd29wye&dl=0';
 
